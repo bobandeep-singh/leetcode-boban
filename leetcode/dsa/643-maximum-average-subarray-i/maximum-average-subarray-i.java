@@ -1,11 +1,10 @@
 class Solution {
     public double findMaxAverage(int[] nums, int k) {
-        double maxAvg = Integer.MIN_VALUE;
         int winSum = 0;
         for(int i=0; i<k; i++){
             winSum += nums[i];
         }
-        maxAvg = (double)winSum/k;
+        int maxSum = winSum;
 
         int start = 0;
         int end = k-1;
@@ -14,14 +13,12 @@ class Solution {
             if(nums.length-i-1 < k){
                 break;
             }
-            winSum -= nums[start];
-            winSum += nums[end+1];
+            winSum = winSum + nums[end+1] - nums[start];
             start++;
             end++;
 
-            maxAvg = Math.max(maxAvg, (double)winSum/k);
+            maxSum = Math.max(maxSum, winSum);
         }
-
-        return maxAvg;
+        return (double)maxSum/k;
     }
 }
