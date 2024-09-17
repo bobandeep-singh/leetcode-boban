@@ -14,7 +14,7 @@ class Solution {
         ListNode tail = sumList;
         int rem = 0;
 
-        while((null != l1 || null != l2 || rem > 0)){
+        while(null != l1 || null != l2 || rem > 0){
             int currSum = 0 + rem;
             
             if(l1 != null){
@@ -26,24 +26,17 @@ class Solution {
                 l2 = l2.next;
             }
             // int currSum = l1.val + l2.val + rem;
-            System.out.println("currSum: "+currSum);
+            // System.out.println("currSum: "+currSum);
             
             rem = currSum / 10;
-            System.out.println("rem: "+rem);
+            // System.out.println("rem: "+rem);
             
             currSum = currSum % 10;
-            System.out.println("currSum: "+currSum);
+            // System.out.println("currSum: "+currSum);
             
             tail.next = new ListNode(currSum);
             tail = tail.next;
-
         }
-        // if(null == l1){
-        //     tail.next = l2;
-        // }
-        // if(null == l2){
-        //     tail.next = l1;
-        // }
 
         return sumList.next;
         
