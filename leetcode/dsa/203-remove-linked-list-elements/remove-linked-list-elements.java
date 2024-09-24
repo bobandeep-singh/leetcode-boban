@@ -23,9 +23,6 @@ class Solution {
         ListNode nextNode = head.next;
 
         while(null != nextNode){
-            System.out.println("++++++++++++++++");
-            System.out.println("Prev: "+prev.val);
-            System.out.println("NextNode: "+nextNode.val);
             if(val == nextNode.val){
                 ListNode temp = prev;
                 prev.next = nextNode.next;
